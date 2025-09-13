@@ -1,0 +1,39 @@
+[tools]
+node = "22"
+
+[tasks.format]
+description = "Format the project files"
+run = "bun run format"
+
+[tasks.lint]
+description = "Lint the project and fix issues"
+run = "bun run lint"
+
+[tasks.typecheck]
+description = "Run type checks for node and web"
+run = "bun run typecheck"
+
+[tasks.dev]
+description = "Start the development server"
+run = "bun run dev"
+
+[tasks.build]
+description = "Build the Electron application"
+run = "bun run build"
+alias = "b"
+
+[tasks.build_win]
+description = "Build the Electron application for Windows"
+run = "bun run build:win"
+
+[tasks.build_mac]
+description = "Build the Electron application for MacOS"
+run = "bun run build:mac"
+
+[tasks.build_linux]
+description = "Build the Electron application for Linux"
+run = "bun run build:linux"
+
+[tasks.ci]
+description = "Run all CI checks (lint, typecheck, build)"
+depends = ["lint", "typecheck", "build"]

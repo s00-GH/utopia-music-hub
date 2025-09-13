@@ -1,23 +1,12 @@
-<h2 align="center">🎵 Alger Music Player</h2>
-<div align="center">
-<div align="center">
-  <a href="https://github.com/algerkong/AlgerMusicPlayer/stargazers">
-    <img src="https://img.shields.io/github/stars/algerkong/AlgerMusicPlayer?style=for-the-badge&logo=github&label=Stars&logoColor=white&color=22c55e" alt="GitHub stars">
-  </a>
-  <a href="https://github.com/algerkong/AlgerMusicPlayer/releases">
-    <img src="https://img.shields.io/github/v/release/algerkong/AlgerMusicPlayer?style=for-the-badge&logo=github&label=Release&logoColor=white&color=1a67af" alt="GitHub release">
-  </a>
-  <a href="https://pd.qq.com/s/cs056n33q?b=5">
-    <img src="https://img.shields.io/badge/QQ频道-algermusic-blue?style=for-the-badge&color=yellow" alt="加入频道">
-  </a>
-  <a href="https://t.me/+9efsKRuvKBk2NWVl">
-    <img src="https://img.shields.io/badge/AlgerMusic-blue?style=for-the-badge&logo=telegram&logoColor=white&label=Telegram" alt="Telegram">
-  </a>
-   <a href="https://donate.alger.fun/">
-    <img src="https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E6%8D%90%E8%B5%A0-blue?style=for-the-badge&logo=telegram&logoColor=pink&color=pink&label=%E8%B5%9E%E5%8A%A9" alt="赞助">
-  </a>
-</div>
-</div>
+<h2 align="center">🎵 Utopia Music Hub</h2>
+
+[![GitHub release](https://img.shields.io/github/v/release/algerkong/AlgerMusicPlayer?style=for-the-badge&logo=github&label=Release&logoColor=white&color=1a67af)](https://github.com/algerkong/AlgerMusicPlayer/releases)
+[![GitHub stars](https://img.shields.io/github/stars/algerkong/AlgerMusicPlayer?style=for-the-badge&logo=github&label=Stars&logoColor=white&color=22c55e)](https://github.com/algerkong/AlgerMusicPlayer/stargazers)
+[![加入频道](https://img.shields.io/badge/QQ频道-algermusic-blue?style=for-the-badge&color=yellow)](https://pd.qq.com/s/cs056n33q?b=5)
+[![Telegram](https://img.shields.io/badge/AlgerMusic-blue?style=for-the-badge&logo=telegram&logoColor=white&label=Telegram)](https://t.me/+9efsKRuvKBk2NWVl)
+[![赞助](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E6%8D%90%E8%B5%A0-blue?style=for-the-badge&logo=telegram&logoColor=pink&color=pink&label=%E8%B5%9E%E5%8A%A9)](https://donate.alger.fun/)
+
+````
 <div align="center">
   <a href="https://hellogithub.com/repository/607b849c598d48e08fe38789d156ebdc" target="_blank"><img src="https://api.hellogithub.com/v1/widgets/recommend.svg?rid=607b849c598d48e08fe38789d156ebdc&claim_uid=ObuMXUfeHBmk9TI&theme=neutral" alt="Featured｜HelloGitHub" width="160" height="32" /></a>
 </div>
@@ -75,7 +64,7 @@
 ```bash
 npm install
 npm run dev
-```
+````
 
 ## 开发文档
 

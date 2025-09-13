@@ -65,18 +65,7 @@ const layoutRouter = [
       keepAlive: true
     }
   },
-  {
-    path: '/user',
-    name: 'user',
-    meta: {
-      title: 'comp.user',
-      icon: 'icon-Profile',
-      keepAlive: true,
-      noScroll: true,
-      isMobile: true
-    },
-    component: () => import('@/views/user/index.vue')
-  },
+
   {
     path: '/set',
     name: 'set',

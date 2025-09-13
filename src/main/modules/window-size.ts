@@ -289,6 +289,7 @@ class WindowSizeManager {
       minHeight: MIN_HEIGHT,
       show: false,
       frame: false,
+      title: 'Utopia Music Hub',
       webPreferences: {
         nodeIntegration: false,
         contextIsolation: true

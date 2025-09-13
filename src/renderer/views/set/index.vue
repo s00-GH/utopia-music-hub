@@ -18,24 +18,29 @@
       <div class="set-page">
         <!-- 基础设置 -->
         <div id="basic" ref="basicRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.basic') }}</div>
+          <div class="settings-section-title">{{ t("settings.sections.basic") }}</div>
           <div class="settings-section-content">
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.basic.themeMode') }}</div>
-                <div class="set-item-content">{{ t('settings.basic.themeModeDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.basic.themeMode") }}</div>
+                <div class="set-item-content">
+                  {{ t("settings.basic.themeModeDesc") }}
+                </div>
               </div>
               <div class="flex items-center gap-3">
                 <div class="flex items-center gap-2">
-                  <n-switch v-model:value="setData.autoTheme" @update:value="handleAutoThemeChange">
+                  <n-switch
+                    v-model:value="setData.autoTheme"
+                    @update:value="handleAutoThemeChange"
+                  >
                     <template #checked><i class="ri-smartphone-line"></i></template>
                     <template #unchecked><i class="ri-settings-line"></i></template>
                   </n-switch>
                   <span class="text-sm text-gray-500">
                     {{
                       setData.autoTheme
-                        ? t('settings.basic.autoTheme')
-                        : t('settings.basic.manualTheme')
+                        ? t("settings.basic.autoTheme")
+                        : t("settings.basic.manualTheme")
                     }}
                   </span>
                 </div>
@@ -53,24 +58,24 @@
             <!-- 语言设置 -->
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.basic.language') }}</div>
-                <div class="set-item-content">{{ t('settings.basic.languageDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.basic.language") }}</div>
+                <div class="set-item-content">{{ t("settings.basic.languageDesc") }}</div>
               </div>
               <language-switcher />
             </div>
 
             <div class="set-item" v-if="isElectron">
               <div>
-                <div class="set-item-title">{{ t('settings.basic.font') }}</div>
-                <div class="set-item-content">{{ t('settings.basic.fontDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.basic.font") }}</div>
+                <div class="set-item-content">{{ t("settings.basic.fontDesc") }}</div>
               </div>
               <div class="flex gap-2">
                 <n-radio-group v-model:value="setData.fontScope" class="mt-2">
                   <n-radio key="global" value="global">{{
-                    t('settings.basic.fontScope.global')
+                    t("settings.basic.fontScope.global")
                   }}</n-radio>
                   <n-radio key="lyric" value="lyric">{{
-                    t('settings.basic.fontScope.lyric')
+                    t("settings.basic.fontScope.lyric")
                   }}</n-radio>
                 </n-radio-group>
                 <n-select
@@ -87,23 +92,41 @@
             </div>
 
             <div v-if="selectedFonts.length > 0" class="font-preview-container">
-              <div class="font-preview-title">{{ t('settings.basic.fontPreview.title') }}</div>
+              <div class="font-preview-title">
+                {{ t("settings.basic.fontPreview.title") }}
+              </div>
               <div class="font-preview" :style="{ fontFamily: setData.fontFamily }">
                 <div class="preview-item">
-                  <div class="preview-label">{{ t('settings.basic.fontPreview.chinese') }}</div>
-                  <div class="preview-text">{{ t('settings.basic.fontPreview.chineseText') }}</div>
+                  <div class="preview-label">
+                    {{ t("settings.basic.fontPreview.chinese") }}
+                  </div>
+                  <div class="preview-text">
+                    {{ t("settings.basic.fontPreview.chineseText") }}
+                  </div>
                 </div>
                 <div class="preview-item">
-                  <div class="preview-label">{{ t('settings.basic.fontPreview.english') }}</div>
-                  <div class="preview-text">{{ t('settings.basic.fontPreview.englishText') }}</div>
+                  <div class="preview-label">
+                    {{ t("settings.basic.fontPreview.english") }}
+                  </div>
+                  <div class="preview-text">
+                    {{ t("settings.basic.fontPreview.englishText") }}
+                  </div>
                 </div>
                 <div class="preview-item">
-                  <div class="preview-label">{{ t('settings.basic.fontPreview.japanese') }}</div>
-                  <div class="preview-text">{{ t('settings.basic.fontPreview.japaneseText') }}</div>
+                  <div class="preview-label">
+                    {{ t("settings.basic.fontPreview.japanese") }}
+                  </div>
+                  <div class="preview-text">
+                    {{ t("settings.basic.fontPreview.japaneseText") }}
+                  </div>
                 </div>
                 <div class="preview-item">
-                  <div class="preview-label">{{ t('settings.basic.fontPreview.korean') }}</div>
-                  <div class="preview-text">{{ t('settings.basic.fontPreview.koreanText') }}</div>
+                  <div class="preview-label">
+                    {{ t("settings.basic.fontPreview.korean") }}
+                  </div>
+                  <div class="preview-text">
+                    {{ t("settings.basic.fontPreview.koreanText") }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -111,15 +134,22 @@
             <!-- Token管理 -->
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.basic.tokenManagement') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.basic.tokenManagement") }}
+                </div>
                 <div class="set-item-content">
                   <div class="text-sm text-gray-500 mb-2">
-                    {{ t('settings.basic.tokenStatus') }}:
+                    {{ t("settings.basic.tokenStatus") }}:
                     {{
-                      currentToken ? t('settings.basic.tokenSet') : t('settings.basic.tokenNotSet')
+                      currentToken
+                        ? t("settings.basic.tokenSet")
+                        : t("settings.basic.tokenNotSet")
                     }}
                   </div>
-                  <div v-if="currentToken" class="text-xs text-gray-400 mb-2 font-mono break-all">
+                  <div
+                    v-if="currentToken"
+                    class="text-xs text-gray-400 mb-2 font-mono break-all"
+                  >
                     {{ currentToken.substring(0, 50) }}...
                   </div>
                 </div>
@@ -127,25 +157,32 @@
               <div class="flex gap-2">
                 <n-button size="small" @click="showTokenModal = true">
                   {{
-                    currentToken ? t('settings.basic.modifyToken') : t('settings.basic.setToken')
+                    currentToken
+                      ? t("settings.basic.modifyToken")
+                      : t("settings.basic.setToken")
                   }}
                 </n-button>
-                <n-button v-if="currentToken" size="small" type="error" @click="clearToken">
-                  {{ t('settings.basic.clearToken') }}
+                <n-button
+                  v-if="currentToken"
+                  size="small"
+                  type="error"
+                  @click="clearToken"
+                >
+                  {{ t("settings.basic.clearToken") }}
                 </n-button>
               </div>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.basic.animation') }}</div>
+                <div class="set-item-title">{{ t("settings.basic.animation") }}</div>
                 <div class="set-item-content">
                   <div class="flex items-center gap-2">
                     <n-switch v-model:value="setData.noAnimate">
-                      <template #checked>{{ t('common.off') }}</template>
-                      <template #unchecked>{{ t('common.on') }}</template>
+                      <template #checked>{{ t("common.off") }}</template>
+                      <template #unchecked>{{ t("common.on") }}</template>
                     </n-switch>
-                    <span>{{ t('settings.basic.animationDesc') }}</span>
+                    <span>{{ t("settings.basic.animationDesc") }}</span>
                   </div>
                 </div>
               </div>
@@ -160,11 +197,7 @@
                       :min="0.1"
                       :max="3"
                       :step="0.1"
-                      :marks="{
-                        0.1: t('settings.basic.animationSpeed.slow'),
-                        1: t('settings.basic.animationSpeed.normal'),
-                        3: t('settings.basic.animationSpeed.fast')
-                      }"
+                      :marks="{}"
                       :disabled="setData.noAnimate"
                   /></template>
                   <template v-else>
@@ -187,79 +220,81 @@
 
         <!-- 播放设置 -->
         <div id="playback" ref="playbackRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.playback') }}</div>
+          <div class="settings-section-title">{{ t("settings.sections.playback") }}</div>
           <div class="settings-section-content">
             <div>
               <div class="set-item">
                 <div>
-                  <div class="set-item-title">{{ t('settings.playback.quality') }}</div>
+                  <div class="set-item-title">{{ t("settings.playback.quality") }}</div>
                   <div class="set-item-content">
-                    {{ t('settings.playback.qualityDesc') }}
+                    {{ t("settings.playback.qualityDesc") }}
                   </div>
                 </div>
                 <n-select
                   v-model:value="setData.musicQuality"
                   :options="[
-                    { label: t('settings.playback.qualityOptions.standard'), value: 'standard' },
-                    { label: t('settings.playback.qualityOptions.higher'), value: 'higher' },
-                    { label: t('settings.playback.qualityOptions.exhigh'), value: 'exhigh' },
-                    { label: t('settings.playback.qualityOptions.lossless'), value: 'lossless' },
-                    { label: t('settings.playback.qualityOptions.hires'), value: 'hires' },
-                    { label: t('settings.playback.qualityOptions.jyeffect'), value: 'jyeffect' },
+                    {
+                      label: t('settings.playback.qualityOptions.standard'),
+                      value: 'standard',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.higher'),
+                      value: 'higher',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.exhigh'),
+                      value: 'exhigh',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.lossless'),
+                      value: 'lossless',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.hires'),
+                      value: 'hires',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.jyeffect'),
+                      value: 'jyeffect',
+                    },
                     { label: t('settings.playback.qualityOptions.sky'), value: 'sky' },
-                    { label: t('settings.playback.qualityOptions.dolby'), value: 'dolby' },
-                    { label: t('settings.playback.qualityOptions.jymaster'), value: 'jymaster' }
+                    {
+                      label: t('settings.playback.qualityOptions.dolby'),
+                      value: 'dolby',
+                    },
+                    {
+                      label: t('settings.playback.qualityOptions.jymaster'),
+                      value: 'jymaster',
+                    },
                   ]"
                   style="width: 160px"
                 />
               </div>
-              <!-- 网易云 QQ 音乐 酷我 酷狗 会员购买链接 -->
-              <div class="p-2 bg-light-100 dark:bg-dark-100 rounded-lg mt-2">
-                <div>大家还是需要支持正版，本软件只做开源探讨</div>
-                <div class="mt-2">各大音乐会员购买链接</div>
-                <div class="flex gap-5 flex-wrap">
-                  <a
-                    class="text-green-400 hover:text-green-500"
-                    href="https://music.163.com/store/vip"
-                    target="_blank"
-                    >网易云音乐会员</a
-                  >
-                  <a
-                    class="text-green-400 hover:text-green-500"
-                    href="https://y.qq.com/portal/vipportal/"
-                    target="_blank"
-                    >QQ音乐会员</a
-                  >
-                  <a
-                    class="text-green-400 hover:text-green-500"
-                    href="https://vip.kugou.com/"
-                    target="_blank"
-                    >酷狗音乐会员</a
-                  >
-                </div>
-              </div>
+
             </div>
             <div class="set-item" v-if="isElectron">
               <div>
-                <div class="set-item-title">{{ t('settings.playback.musicSources') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.playback.musicSources") }}
+                </div>
                 <div class="set-item-content">
                   <div class="flex items-center gap-2">
                     <n-switch v-model:value="setData.enableMusicUnblock">
-                      <template #checked>{{ t('common.on') }}</template>
-                      <template #unchecked>{{ t('common.off') }}</template>
+                      <template #checked>{{ t("common.on") }}</template>
+                      <template #unchecked>{{ t("common.off") }}</template>
                     </n-switch>
-                    <span>{{ t('settings.playback.musicUnblockEnableDesc') }}</span>
+                    <span>{{ t("settings.playback.musicUnblockEnableDesc") }}</span>
                   </div>
                   <div v-if="setData.enableMusicUnblock" class="mt-2">
                     <div class="text-sm">
                       <span class="text-gray-500">{{
-                        t('settings.playback.selectedMusicSources')
+                        t("settings.playback.selectedMusicSources")
                       }}</span>
                       <span v-if="musicSources.length > 0" class="text-gray-400">
-                        {{ musicSources.join(', ') }}
+                        {{ musicSources.join(", ") }}
                       </span>
                       <span v-else class="text-red-500 text-xs">
-                        {{ t('settings.playback.noMusicSources') }}
+                        {{ t("settings.playback.noMusicSources") }}
                       </span>
                     </div>
                   </div>
@@ -270,51 +305,69 @@
                 :disabled="!setData.enableMusicUnblock"
                 @click="showMusicSourcesModal = true"
               >
-                {{ t('settings.playback.configureMusicSources') }}
+                {{ t("settings.playback.configureMusicSources") }}
               </n-button>
             </div>
 
             <div class="set-item" v-if="platform === 'darwin'">
               <div>
-                <div class="set-item-title">{{ t('settings.playback.showStatusBar') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.playback.showStatusBar") }}
+                </div>
                 <div class="set-item-content">
-                  {{ t('settings.playback.showStatusBarContent') }}
+                  {{ t("settings.playback.showStatusBarContent") }}
                 </div>
               </div>
               <n-switch v-model:value="setData.showTopAction">
-                <template #checked>{{ t('common.on') }}</template>
-                <template #unchecked>{{ t('common.off') }}</template>
+                <template #checked>{{ t("common.on") }}</template>
+                <template #unchecked>{{ t("common.off") }}</template>
               </n-switch>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.playback.autoPlay') }}</div>
-                <div class="set-item-content">{{ t('settings.playback.autoPlayDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.playback.autoPlay") }}</div>
+                <div class="set-item-content">
+                  {{ t("settings.playback.autoPlayDesc") }}
+                </div>
               </div>
               <n-switch v-model:value="setData.autoPlay">
-                <template #checked>{{ t('common.on') }}</template>
-                <template #unchecked>{{ t('common.off') }}</template>
+                <template #checked>{{ t("common.on") }}</template>
+                <template #unchecked>{{ t("common.off") }}</template>
               </n-switch>
             </div>
           </div>
         </div>
 
         <!-- 应用设置 -->
-        <div v-if="isElectron" id="application" ref="applicationRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.application') }}</div>
+        <div
+          v-if="isElectron"
+          id="application"
+          ref="applicationRef"
+          class="settings-section"
+        >
+          <div class="settings-section-title">
+            {{ t("settings.sections.application") }}
+          </div>
           <div class="settings-section-content">
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.closeAction') }}</div>
-                <div class="set-item-content">{{ t('settings.application.closeActionDesc') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.application.closeAction") }}
+                </div>
+                <div class="set-item-content">
+                  {{ t("settings.application.closeActionDesc") }}
+                </div>
               </div>
               <n-select
                 v-model:value="setData.closeAction"
                 :options="[
                   { label: t('settings.application.closeOptions.ask'), value: 'ask' },
-                  { label: t('settings.application.closeOptions.minimize'), value: 'minimize' },
-                  { label: t('settings.application.closeOptions.close'), value: 'close' }
+                  {
+                    label: t('settings.application.closeOptions.minimize'),
+                    value: 'minimize',
+                  },
+                  { label: t('settings.application.closeOptions.close'), value: 'close' },
                 ]"
                 style="width: 160px"
               />
@@ -322,69 +375,79 @@
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.shortcut') }}</div>
-                <div class="set-item-content">{{ t('settings.application.shortcutDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.application.shortcut") }}</div>
+                <div class="set-item-content">
+                  {{ t("settings.application.shortcutDesc") }}
+                </div>
               </div>
               <n-button size="small" @click="showShortcutModal = true">{{
-                t('common.configure')
+                t("common.configure")
               }}</n-button>
             </div>
 
             <div v-if="isElectron" class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.download') }}</div>
+                <div class="set-item-title">{{ t("settings.application.download") }}</div>
                 <div class="set-item-content">
                   <n-switch v-model:value="setData.alwaysShowDownloadButton" class="mr-2">
-                    <template #checked>{{ t('common.show') }}</template>
-                    <template #unchecked>{{ t('common.hide') }}</template>
+                    <template #checked>{{ t("common.show") }}</template>
+                    <template #unchecked>{{ t("common.hide") }}</template>
                   </n-switch>
-                  {{ t('settings.application.downloadDesc') }}
+                  {{ t("settings.application.downloadDesc") }}
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <n-button size="small" @click="settingsStore.showDownloadDrawer = true">
-                  {{ t('settings.application.download') }}
+                  {{ t("settings.application.download") }}
                 </n-button>
               </div>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.unlimitedDownload') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.application.unlimitedDownload") }}
+                </div>
                 <div class="set-item-content">
                   <n-switch v-model:value="setData.unlimitedDownload" class="mr-2">
-                    <template #checked>{{ t('common.on') }}</template>
-                    <template #unchecked>{{ t('common.off') }}</template>
+                    <template #checked>{{ t("common.on") }}</template>
+                    <template #unchecked>{{ t("common.off") }}</template>
                   </n-switch>
-                  {{ t('settings.application.unlimitedDownloadDesc') }}
+                  {{ t("settings.application.unlimitedDownloadDesc") }}
                 </div>
               </div>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.downloadPath') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.application.downloadPath") }}
+                </div>
                 <div class="set-item-content">
-                  {{ setData.downloadPath || t('settings.application.downloadPathDesc') }}
+                  {{ setData.downloadPath || t("settings.application.downloadPathDesc") }}
                 </div>
               </div>
               <div class="flex items-center gap-2">
-                <n-button size="small" @click="openDownloadPath">{{ t('common.open') }}</n-button>
+                <n-button size="small" @click="openDownloadPath">{{
+                  t("common.open")
+                }}</n-button>
                 <n-button size="small" @click="selectDownloadPath">{{
-                  t('common.modify')
+                  t("common.modify")
                 }}</n-button>
               </div>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.application.remoteControl') }}</div>
+                <div class="set-item-title">
+                  {{ t("settings.application.remoteControl") }}
+                </div>
                 <div class="set-item-content">
-                  {{ t('settings.application.remoteControlDesc') }}
+                  {{ t("settings.application.remoteControlDesc") }}
                 </div>
               </div>
               <n-button size="small" @click="showRemoteControlModal = true">{{
-                t('common.configure')
+                t("common.configure")
               }}</n-button>
             </div>
           </div>
@@ -392,41 +455,43 @@
 
         <!-- 网络设置 -->
         <div v-if="isElectron" id="network" ref="networkRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.network') }}</div>
+          <div class="settings-section-title">{{ t("settings.sections.network") }}</div>
           <div class="settings-section-content">
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.network.apiPort') }}</div>
-                <div class="set-item-content">{{ t('settings.network.apiPortDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.network.apiPort") }}</div>
+                <div class="set-item-content">
+                  {{ t("settings.network.apiPortDesc") }}
+                </div>
               </div>
               <n-input-number v-model:value="setData.musicApiPort" />
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.network.proxy') }}</div>
-                <div class="set-item-content">{{ t('settings.network.proxyDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.network.proxy") }}</div>
+                <div class="set-item-content">{{ t("settings.network.proxyDesc") }}</div>
               </div>
               <div class="flex items-center gap-2">
                 <n-switch v-model:value="setData.proxyConfig.enable">
-                  <template #checked>{{ t('common.on') }}</template>
-                  <template #unchecked>{{ t('common.off') }}</template>
+                  <template #checked>{{ t("common.on") }}</template>
+                  <template #unchecked>{{ t("common.off") }}</template>
                 </n-switch>
                 <n-button size="small" @click="showProxyModal = true">{{
-                  t('common.configure')
+                  t("common.configure")
                 }}</n-button>
               </div>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.network.realIP') }}</div>
-                <div class="set-item-content">{{ t('settings.network.realIPDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.network.realIP") }}</div>
+                <div class="set-item-content">{{ t("settings.network.realIPDesc") }}</div>
               </div>
               <div class="flex items-center gap-2">
                 <n-switch v-model:value="setData.enableRealIP">
-                  <template #checked>{{ t('common.on') }}</template>
-                  <template #unchecked>{{ t('common.off') }}</template>
+                  <template #checked>{{ t("common.on") }}</template>
+                  <template #unchecked>{{ t("common.off") }}</template>
                 </n-switch>
                 <n-input
                   v-if="setData.enableRealIP"
@@ -442,25 +507,25 @@
 
         <!-- 系统管理 -->
         <div v-if="isElectron" id="system" ref="systemRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.system') }}</div>
+          <div class="settings-section-title">{{ t("settings.sections.system") }}</div>
           <div class="settings-section-content">
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.system.cache') }}</div>
-                <div class="set-item-content">{{ t('settings.system.cacheDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.system.cache") }}</div>
+                <div class="set-item-content">{{ t("settings.system.cacheDesc") }}</div>
               </div>
               <n-button size="small" @click="showClearCacheModal = true">
-                {{ t('settings.system.cacheDesc') }}
+                {{ t("settings.system.cacheDesc") }}
               </n-button>
             </div>
 
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.system.restart') }}</div>
-                <div class="set-item-content">{{ t('settings.system.restartDesc') }}</div>
+                <div class="set-item-title">{{ t("settings.system.restart") }}</div>
+                <div class="set-item-content">{{ t("settings.system.restartDesc") }}</div>
               </div>
               <n-button size="small" @click="restartApp">{{
-                t('settings.system.restart')
+                t("settings.system.restart")
               }}</n-button>
             </div>
           </div>
@@ -468,75 +533,53 @@
 
         <!-- 关于 -->
         <div id="about" ref="aboutRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.regard') }}</div>
+          <div class="settings-section-title">{{ t("settings.regard") }}</div>
           <div class="settings-section-content">
             <div class="set-item">
               <div>
-                <div class="set-item-title">{{ t('settings.about.version') }}</div>
+                <div class="set-item-title">{{ t("settings.about.version") }}</div>
                 <div class="set-item-content">
                   {{ updateInfo.currentVersion }}
                   <template v-if="updateInfo.hasUpdate">
                     <n-tag type="success" class="ml-2">
-                      {{ t('settings.about.hasUpdate') }} {{ updateInfo.latestVersion }}
+                      {{ t("settings.about.hasUpdate") }} {{ updateInfo.latestVersion }}
                     </n-tag>
                   </template>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <n-button size="small" :loading="checking" @click="checkForUpdates(true)">
-                  {{ checking ? t('settings.about.checking') : t('settings.about.checkUpdate') }}
+                  {{
+                    checking
+                      ? t("settings.about.checking")
+                      : t("settings.about.checkUpdate")
+                  }}
                 </n-button>
-                <n-button v-if="updateInfo.hasUpdate" size="small" @click="openReleasePage">
-                  {{ t('settings.about.gotoUpdate') }}
+                <n-button
+                  v-if="updateInfo.hasUpdate"
+                  size="small"
+                  @click="openReleasePage"
+                >
+                  {{ t("settings.about.gotoUpdate") }}
                 </n-button>
               </div>
             </div>
 
-            <div
-              class="set-item cursor-pointer hover:text-green-500 hover:bg-green-950 transition-all"
-              @click="openAuthor"
-            >
-              <coffee>
-                <div>
-                  <div class="set-item-title">{{ t('settings.about.author') }}</div>
-                  <div class="set-item-content">{{ t('settings.about.authorDesc') }}</div>
-                </div>
-              </coffee>
-              <div>
-                <n-button size="small" @click="openAuthor">
-                  <i class="ri-github-line"></i>{{ t('settings.about.gotoGithub') }}
-                </n-button>
-              </div>
-            </div>
+
           </div>
         </div>
 
-        <!-- 捐赠支持 -->
-        <div id="donation" ref="donationRef" class="settings-section">
-          <div class="settings-section-title">{{ t('settings.sections.donation') }}</div>
-          <div class="settings-section-content">
-            <div class="set-item">
-              <div>
-                <div class="set-item-title">{{ t('settings.sections.donation') }}</div>
-                <div class="set-item-content">{{ t('donation.message') }}</div>
-              </div>
-              <n-button text @click="toggleDonationList">
-                <template #icon>
-                  <i :class="isDonationListVisible ? 'ri-eye-line' : 'ri-eye-off-line'" />
-                </template>
-                {{ isDonationListVisible ? t('common.hide') : t('common.show') }}
-              </n-button>
-            </div>
-            <donation-list v-if="isDonationListVisible" />
-          </div>
-        </div>
+
       </div>
       <play-bottom />
     </n-scrollbar>
 
     <template v-if="isElectron">
       <!-- 快捷键设置弹窗 -->
-      <shortcut-settings v-model:show="showShortcutModal" @change="handleShortcutsChange" />
+      <shortcut-settings
+        v-model:show="showShortcutModal"
+        @change="handleShortcutsChange"
+      />
 
       <!-- 代理设置弹窗 -->
       <proxy-settings
@@ -546,7 +589,10 @@
       />
 
       <!-- 音源设置弹窗 -->
-      <music-source-settings v-model:show="showMusicSourcesModal" v-model:sources="musicSources" />
+      <music-source-settings
+        v-model:show="showMusicSourcesModal"
+        v-model:sources="musicSources"
+      />
 
       <!-- 远程控制设置弹窗 -->
       <remote-control-setting v-model:visible="showRemoteControlModal" />
@@ -572,8 +618,7 @@ import { useI18n } from 'vue-i18n';
 
 import localData from '@/../main/set.json';
 import { getUserDetail } from '@/api/login';
-import Coffee from '@/components/Coffee.vue';
-import DonationList from '@/components/common/DonationList.vue';
+
 import PlayBottom from '@/components/common/PlayBottom.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import ClearCacheSettings from '@/components/settings/ClearCacheSettings.vue';
@@ -665,9 +710,7 @@ const handleAutoThemeChange = (value: boolean) => {
   settingsStore.setAutoTheme(value);
 };
 
-const openAuthor = () => {
-  window.open(setData.value.authorUrl);
-};
+
 
 const restartApp = () => {
   window.electron.ipcRenderer.send('restart');
@@ -843,12 +886,7 @@ watch(
   }
 );
 
-const isDonationListVisible = ref(localStorage.getItem('donationListVisible') !== 'false');
 
-const toggleDonationList = () => {
-  isDonationListVisible.value = !isDonationListVisible.value;
-  localStorage.setItem('donationListVisible', isDonationListVisible.value.toString());
-};
 
 // 清除缓存相关
 const showClearCacheModal = ref(false);
@@ -928,8 +966,7 @@ const settingSections = [
   { id: 'application', title: t('settings.sections.application'), electron: true },
   { id: 'network', title: t('settings.sections.network'), electron: true },
   { id: 'system', title: t('settings.sections.system'), electron: true },
-  { id: 'regard', title: t('settings.sections.regard') },
-  { id: 'donation', title: t('settings.sections.donation') }
+  { id: 'regard', title: t('settings.sections.regard') }
 ];
 
 // 当前激活的分类
@@ -943,7 +980,6 @@ const applicationRef = ref();
 const networkRef = ref();
 const systemRef = ref();
 const aboutRef = ref();
-const donationRef = ref();
 
 // 滚动到指定分类
 const scrollToSection = async (sectionId: string) => {
@@ -954,8 +990,7 @@ const scrollToSection = async (sectionId: string) => {
     application: applicationRef,
     network: networkRef,
     system: systemRef,
-    about: aboutRef,
-    donation: donationRef
+    about: aboutRef
   }[sectionId];
 
   if (sectionRef?.value) {
@@ -977,8 +1012,7 @@ const handleScroll = (e: any) => {
     { id: 'application', ref: applicationRef },
     { id: 'network', ref: networkRef },
     { id: 'system', ref: systemRef },
-    { id: 'about', ref: aboutRef },
-    { id: 'donation', ref: donationRef }
+    { id: 'about', ref: aboutRef }
   ];
 
   const activeSection = sections[0].id;

@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: electron-lan-file
+productName: Utopia Music Hub
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: electron-lan-file
+  executableName: utopia-music-hub
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
